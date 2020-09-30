@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NelsonProjects.Server", "NelsonProjects\Server\NelsonProjects.Server.csproj", "{B617AE56-8AAC-488C-B76B-07DF4CEC67C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NelsonProjects.Server", "NelsonProjects\Server\NelsonProjects.Server.csproj", "{B617AE56-8AAC-488C-B76B-07DF4CEC67C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NelsonProjects.Client", "NelsonProjects\Client\NelsonProjects.Client.csproj", "{566687F8-1DB7-40CA-8BC5-1CE6E00CE3AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NelsonProjects.Client", "NelsonProjects\Client\NelsonProjects.Client.csproj", "{566687F8-1DB7-40CA-8BC5-1CE6E00CE3AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NelsonProjects.Shared", "NelsonProjects\Shared\NelsonProjects.Shared.csproj", "{7C33BFCD-6F68-4B1E-8341-8F95E2C6C5D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NelsonProjects.Shared", "NelsonProjects\Shared\NelsonProjects.Shared.csproj", "{7C33BFCD-6F68-4B1E-8341-8F95E2C6C5D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
