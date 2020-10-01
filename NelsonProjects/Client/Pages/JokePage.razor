@@ -1,0 +1,44 @@
+﻿@page "/jokes"
+
+@using NelsonProjects.Shared.Models
+
+@inject HttpClient Http
+
+<h3>JokePage</h3>
+
+<h4>Current Jokes</h4>
+@if (jokes == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Setup</th>
+                <th>Punchline</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var joke in jokes)
+            {
+                <tr>
+                    <td>@joke.Setup</td>
+                    <td>@joke.Punchline</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    private JokeModel[] jokes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        jokes = await Http.GetFromJsonAsync<JokeModel[]>("api/jokes");
+    }
+
+}
