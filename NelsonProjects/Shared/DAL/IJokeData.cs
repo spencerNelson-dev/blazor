@@ -8,5 +8,7 @@ namespace NelsonProjects.Shared.DAL
     {
         Task<List<JokeModel>> GetJokes();
         Task InsertJoke(JokeModel joke);
+
+        Task DeleteJoke(int id);
     }
 }

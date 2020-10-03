@@ -64,7 +64,7 @@ namespace NelsonProjects.Shared.DAL
         {
             string connectionString = _connectionString;
 
-            using (IDbConnection connection = new SqlConnection(connectionString))
+            using (IDbConnection connection = new NpgsqlConnection(connectionString))
             {
                 await connection.ExecuteAsync(sql, parameters);
             }

@@ -10,7 +10,7 @@ using NelsonProjects.Shared.Models;
 
 namespace NelsonProjects.Server.Controllers
 {
-    [Route("api/jokes")]
+    [Route("api/jokes/{id?}")]
     [ApiController]
     public class JokeController : ControllerBase
     {
@@ -25,6 +25,18 @@ namespace NelsonProjects.Server.Controllers
         public async Task<IEnumerable<JokeModel>> Get()
         {
            return await _db.GetJokes();
+        }
+
+        [HttpPost]
+        public async Task Post([FromBody] JokeModel joke)
+        {
+            await _db.InsertJoke(joke);
+        }
+
+        [HttpDelete]
+        public async Task Delete(int id)
+        {
+            await _db.DeleteJoke(id);
         }
     }
 }

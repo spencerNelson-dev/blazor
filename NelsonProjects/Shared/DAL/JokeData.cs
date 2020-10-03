@@ -24,10 +24,17 @@ namespace NelsonProjects.Shared.DAL
 
         public Task InsertJoke(JokeModel joke)
         {
-            string sql = @"insert into joke (date, joke, source, author)
-                            values (@Date, @Joke, @Source, @Author;";
+            string sql = @"insert into joke (date, setup, punchline, source, author)
+                            values (@Date, @Setup, @Punchline, @Source, @Author);";
 
             return _db.SaveData(sql, joke);
+        }
+
+        public Task DeleteJoke(int id)
+        {
+            string sql = @$"delete from joke where id = {id};";
+
+            return _db.SaveData(sql, id);
         }
     }
 }

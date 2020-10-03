@@ -1,21 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace NelsonProjects.Shared.Models
+namespace NelsonProjects.Client.Models
 {
-    public class JokeModel
+    public class DisplayJokeModel
     {
-        public int Id { get; set; }
-
+        [Required]
         public DateTime Date { get; set; }
 
+        [Required]
         public string Setup { get; set; }
 
+        [Required]
         public string Punchline { get; set; }
 
+        [Required]
         public string Source { get; set; }
 
+        [Required]
         public string Author { get; set; }
     }
 }

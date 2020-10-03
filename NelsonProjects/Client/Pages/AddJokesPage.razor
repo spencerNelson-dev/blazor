@@ -1,0 +1,66 @@
+﻿@page "/add-jokes"
+
+@using Models
+@using NelsonProjects.Shared.Models
+
+@inject HttpClient Http
+
+<h3>Add a Joke!</h3>
+
+<EditForm Model="@newJoke" OnValidSubmit="@InsertJoke">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <label>Joke Setup</label>
+    <InputText id="setup" @bind-Value="newJoke.Setup" />
+
+    <label>Punchline</label>
+    <InputText id="punchLine" @bind-Value="newJoke.Punchline" />
+
+    <label>Author</label>
+    <InputText id="author" @bind-Value="newJoke.Author" />
+
+    <label>Source</label>
+    <InputText id="source" @bind-Value="newJoke.Source" />
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</EditForm>
+
+<br/>
+@if(response != null)
+{
+    if(response.IsSuccessStatusCode)
+    {
+        <p>Joke Added!</p>
+    }
+    else
+    {
+        <p>Something went wrong...</p>
+    }
+}
+
+
+@code {
+    private DisplayJokeModel newJoke = new DisplayJokeModel { Date = DateTime.Now };
+
+    private HttpResponseMessage response;
+
+    private DateTime currentDate = DateTime.Now;
+
+    private async Task InsertJoke()
+    {
+        JokeModel j = new JokeModel
+        {
+            Setup = newJoke.Setup,
+            Punchline = newJoke.Punchline,
+            Author = newJoke.Author,
+            Source = newJoke.Source,
+            Date = newJoke.Date
+        };
+
+        response = await Http.PostAsJsonAsync<JokeModel>("api/jokes", j);
+
+        newJoke = new DisplayJokeModel { Date = DateTime.Now };
+    }
+}
